@@ -9,7 +9,8 @@ class App extends Component {
     formula: '',
     graphData: null,
     graphWidth: null,
-    graphHeight: null
+    graphHeight: null,
+    xRange: 10
   }
 
   handleSubmit = (event) => {
@@ -20,7 +21,7 @@ class App extends Component {
   updateGraphData() {
     let newData = [];
     let currentX = 0; 
-    let xRange = 10;
+    let xRange = this.state.xRange;
     let y;
     let currentFormulaResult;
 
@@ -33,7 +34,7 @@ class App extends Component {
        alert("Please enter a valid formula and try again.");
        break;
       }
-      
+
       newData.push({
         "xValue": x,
         "yValue": y
@@ -61,6 +62,15 @@ class App extends Component {
                 onChange={(event) => this.setState({ formula: event.target.value })}
                 placeholder="e.g. x+1, sin(x)" className="form-control" required/>
               <button type="submit" className="btn btn-default">plot graph</button>
+            </div>
+          </div>
+          <div className="row">
+            <div className="form-group col-lg-2">
+              <label>x: </label>
+              <input type="text"
+                value={this.state.xRange}
+                onChange={(event) => this.setState({ xRange: event.target.value })}
+                className="form-control"/>
             </div>
           </div>  
         </form>
