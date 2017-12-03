@@ -49,7 +49,7 @@ class Graph extends React.Component {
         </LineChart>);
 //      }
     return (
-      <div style={{margin: '1em'}}>
+      <div>
         {graphContent}
       </div>
     );
