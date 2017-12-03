@@ -19,7 +19,7 @@ git clone https://github.com/Sir-Turtle/math-lab-react.git
 ```
 3. Change directory into the newly cloned local repository:
 ```
-cd math-lab
+cd math-lab-react
 ```
 4. Install node dependencies:
 ```
