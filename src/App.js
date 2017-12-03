@@ -8,8 +8,8 @@ class App extends Component {
   state = {
     formula: '',
     graphData: null,
-    graphWidth: 500,
-    graphHeight: 300
+    graphWidth: null,
+    graphHeight: null
   }
 
   handleSubmit = (event) => {
@@ -18,27 +18,34 @@ class App extends Component {
   };
 
   updateGraphData() {
-    var newData = [];
+    let newData = [];
     let currentX = 0; 
     let xRange = 10;
-    for (var x = currentX; x < xRange; x++) {
-      if (!this.state.formula) {
-        continue;
-      }
-      var currentFormulaResult = this.state.formula;
-      currentFormulaResult = currentFormulaResult.replace("x", x);
+    let y;
+    let currentFormulaResult;
 
+    for (let x = currentX; x < xRange; x++) {
+      currentFormulaResult = this.state.formula.replace("x", x);
+
+      try {
+        y = math.eval(currentFormulaResult)
+      } catch (exception){
+       alert("Please enter a valid formula and try again.");
+       break;
+      }
+      
       newData.push({
         "xValue": x,
-        "yValue": math.eval(currentFormulaResult)
+        "yValue": y
       });
+      
       x++;
     }
     this.setState({graphData: newData})
   }
 
   componentWillMount(){
-    this.setState({ graphHeight: $(window).height() * .80});
+    this.setState({ graphHeight: $(window).height() * .6});
     this.setState({ graphWidth: $(window).width() * .80});
   }
 
