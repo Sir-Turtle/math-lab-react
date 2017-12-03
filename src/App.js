@@ -1,21 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Form from './Form.js';
 import Graph from './Graph.js';
 
 class App extends Component {
-  state = { formula: '' }
+  state = {
+    formula: '',
+    submitClicked:false 
+  }
 
-  graphFormula = (newFormula) => {
-    this.setState({ formula: newFormula});
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.setState({submitClicked: true});
   };
 
   render() {
     return (
       <div>
-        <Form onSubmit={this.graphFormula} />
-        <Graph />
+        <form onSubmit={this.handleSubmit}>
+          <input type="text"
+            value={this.state.formula}
+            onChange={(event) => this.setState({ formula: event.target.value })}
+            placeholder="math formula" required />
+          <button type="submit">plot graph</button>
+        </form>
+        <Graph formula={this.state.formula} submitClicked={this.state.submitClicked}/>
       </div>
     );
   }
