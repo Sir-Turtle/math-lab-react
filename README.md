@@ -7,7 +7,7 @@ I then created my own custom components and included extra libraries such as:
 - jquery
 - bootstrap
 
-#Guide to run application locally
+##Guide to run application locally
 
 1. Install node for appropriate OS:
 https://nodejs.org/en/download/package-manager/
