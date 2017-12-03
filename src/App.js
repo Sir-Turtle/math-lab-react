@@ -26,7 +26,7 @@ class App extends Component {
     let currentFormulaResult;
 
     for (let x = currentX; x < xRange; x++) {
-      currentFormulaResult = this.state.formula.replace("x", x);
+      currentFormulaResult = this.state.formula.replace(/x/g, x)
 
       try {
         y = math.eval(currentFormulaResult)
