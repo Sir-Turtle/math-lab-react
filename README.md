@@ -25,7 +25,7 @@ cd math-lab-react
 ```
 npm install
 ```
-5. Run application with command: 
+5. Run application with command, it should start on http://localhost:3000/: 
 ```
 npm start
 ``` 
