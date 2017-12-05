@@ -10,7 +10,8 @@ class App extends Component {
     graphData: null,
     graphWidth: null,
     graphHeight: null,
-    xRange: 10
+    xUpperLimit: 10,
+    xLowerLimit: -10
   }
 
   handleSubmit = (event) => {
@@ -20,12 +21,12 @@ class App extends Component {
 
   updateGraphData() {
     let newData = [];
-    let currentX = 0; 
-    let xRange = this.state.xRange;
+    let lowerX = this.state.xLowerLimit; 
+    let upperX = this.state.xUpperLimit;
     let y;
     let currentFormulaResult;
 
-    for (let x = currentX; x < xRange; x++) {
+    for (let x = lowerX; x < upperX; x++) {
       currentFormulaResult = this.state.formula.toLowerCase().replace(/x/g, x)
 
       try {
@@ -66,13 +67,22 @@ class App extends Component {
           </div>
           <div className="row">
             <div className="form-group col-lg-2">
-              <label>x: </label>
+              <label>x-axis upper limit: </label>
               <input type="text"
-                value={this.state.xRange}
-                onChange={(event) => this.setState({ xRange: event.target.value })}
+                value={this.state.xUpperLimit}
+                onChange={(event) => this.setState({ xUpperLimit: event.target.value })}
                 className="form-control"/>
             </div>
-          </div>  
+          </div>
+          <div className="row">
+            <div className="form-group col-lg-2">
+              <label>x-axis lower limit: </label>
+              <input type="text"
+                value={this.state.xLowerLimit}
+                onChange={(event) => this.setState({ xLowerLimit: event.target.value })}
+                className="form-control"/>
+            </div>
+          </div>    
         </form>
         <div className="row">
           <Graph graphData={this.state.graphData} width={this.state.graphWidth} height={this.state.graphHeight}/>
