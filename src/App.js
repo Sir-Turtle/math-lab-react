@@ -53,20 +53,24 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <form onSubmit={this.handleSubmit}>
           <div className="row">
-            <div className="form-group col-lg-2">
-              <label>Formula: </label>
-              <input type="text"
-                value={this.state.formula}
-                onChange={(event) => this.setState({ formula: event.target.value })}
-                placeholder="e.g. x+1, sin(x)" className="form-control" required/>
-              <button type="submit" className="btn btn-default">plot graph</button>
+            <div className="control-group form-group col-xs-11 col-sm-6 col-lg-3">
+              <label className="control-label">Formula: </label>
+              <div className="input-group">
+                <input type="text"
+                  value={this.state.formula}
+                  onChange={(event) => this.setState({ formula: event.target.value })}
+                  placeholder="e.g. x+1, sin(x)" className="form-control " required/>
+                <span className="input-group-btn">
+                  <button type="submit" className="btn btn-default">plot graph</button>
+                </span>
+              </div>
             </div>
           </div>
           <div className="row">
-            <div className="form-group col-lg-2">
+            <div className="form-group col-xs-7 col-sm-4 col-lg-2">
               <label>x-axis upper limit: </label>
               <input type="text"
                 value={this.state.xUpperLimit}
@@ -75,7 +79,7 @@ class App extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="form-group col-lg-2">
+            <div className="form-group col-xs-7 col-sm-4 col-lg-2">
               <label>x-axis lower limit: </label>
               <input type="text"
                 value={this.state.xLowerLimit}
