@@ -40,8 +40,6 @@ class App extends Component {
         "xValue": x,
         "yValue": y
       });
-      
-      x++;
     }
     this.setState({graphData: newData})
   }
