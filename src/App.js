@@ -56,7 +56,7 @@ class App extends Component {
       <div className="container">
         <form onSubmit={this.handleSubmit}>
           <div className="row">
-            <div className="control-group form-group col-xs-11 col-sm-6 col-lg-3">
+            <div className="control-group form-group col-xs-11 col-sm-6 col-lg-4">
               <label className="control-label">Formula: </label>
               <div className="input-group">
                 <input type="text"
@@ -70,7 +70,7 @@ class App extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="form-group col-xs-7 col-sm-4 col-lg-2">
+            <div className="form-group col-xs-6 col-sm-3 col-lg-2">
               <label>x-axis upper limit: </label>
               <input type="text"
                 value={this.state.xUpperLimit}
@@ -79,7 +79,7 @@ class App extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="form-group col-xs-7 col-sm-4 col-lg-2">
+            <div className="form-group col-xs-6 col-sm-3 col-lg-2">
               <label>x-axis lower limit: </label>
               <input type="text"
                 value={this.state.xLowerLimit}
